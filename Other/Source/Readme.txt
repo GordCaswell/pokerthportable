@@ -1,73 +1,47 @@
-PokerTH Portable Launcher 1.4
-=============================
-Copyright 2004-2007 John T. Haller
+The base application's source code is available from the portable app's
+homepage listed in the help.html file (if applicable).
 
-Website: http://PortableApps.com/PokerTHPortable
-
-This software is OSI Certified Open Source Software.
-OSI Certified is a certification mark of the Open Source Initiative.
-
-This program is free software; you can redistribute it and/or
-modify it under the terms of the GNU General Public License
-as published by the Free Software Foundation; either version 2
-of the License, or (at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program; if not, write to the Free Software
-Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
-
-ABOUT PokerTH PORTABLE
-======================
-The PokerTH Portable Launcher allows you to run PokerTH from a removable drive whose letter changes as you move it to another computer.  The game and your settings are be entirely self-contained on the drive and then used on any Windows computer.
-
+Details of most other things are available there as well.
 
 LICENSE
 =======
-This code is released under the GPL.  Within the PokerTHPortableSource directory you will find the code (PokerTHPortable.nsi) as well as the full GPL license (License.txt).  If you use the launcher or code in your own product, please give proper and prominent attribution.
 
+This package's installer and launcher are released under the GPL. The launcher
+is the PortableApps.com Launcher, available with full source and documentation
+from http://portableapps.com/development. We request that developers using the
+PortableApps.com Launcher please leave this directory intact and unchanged.
 
-INSTALLATION / DIRECTORY STRUCTURE
-==================================
-By default, the program expects one of these directory structures:
+USER CONFIGURATION
+==================
 
--\ <--- Directory with PokerTHPortable.exe
-	+\App\
-		+\PokerTH\
-	+\Data\
-		+\settings\
+Some configuration in the PortableApps.com Launcher can be overridden by the
+user in an INI file next to PokerTHPortable.exe called PokerTHPortable.ini.
+If you are happy with the default options, it is not necessary, though.  There
+is an example INI included with this package to get you started.  To use it,
+copy AppNamePortable.ini from this directory to PokerTHPortable.ini next to
+PokerTHPortable.exe. The options in the INI file are as follows:
 
-OR
+   AdditionalParameters=
+   DisableSplashScreen=false
+   RunLocally=false
 
--\ <--- Directory with PokerTHPortable.exe
-	+\PokerTHPortable\
-		+\App\
-			+\PokerTH\
-		+\Data\
-			+\settings\
+(There is no need for an INI header in this file; if you have one, though, it
+won't damage anything.)
 
-It can be used in other directory configurations by including the PokerTHPortable.ini file in the same directory as PokerTHPortable.exe and configuring it as details in the INI file section below.  The INI file may also be placed in a subdirectory of the directory containing PokerTHPortable.exe called PokerTHPortable or 2 directories deep in PortableApps\PokerTHPortable or Data\PokerTHPortable.  All paths in the INI should remain relative to the EXE and not the INI.
+The AdditionalParameters entry allows you to pass additional command-line
+parameters to the application.
 
+The DisableSplashScreen entry allows you to run the launcher without the splash
+screen showing up.  The default is false.
 
-PokerTHPORTABLE.INI CONFIGURATION
-================================
-The PokerTH Portable Launcher will look for an ini file called PokerTHPortable.ini within its directory.  If you are happy with the default options, it is not necessary, though.  There is an example INI included with this package to get you started.  The INI file is formatted as follows:
+The RunLocally entry allows you to run the portable application from a read-
+only medium. This is known as Live mode. It copies what it needs to to a
+temporary directory on the host computer, runs the application, and then
+deletes it afterwards, leaving nothing behind. This can be useful for running
+the application from a CD or if you work on a computer that may have spyware or
+viruses and you'd like to keep your device set to read-only. As a consequence
+of this technique, any changes you make during the Live mode session aren't
+saved back to your device.  The default is false.
 
-[PokerTHPortable]
-PokerTHDirectory=App\PokerTH
-SettingsDirectory=Data\settings
-PokerTHExecutable=PokerTH.exe
-AdditionalParameters=
-DisableSplashScreen=false
-
-The PokerTHDirectory and SettingsDirectory entries should be set to the *relative* path to the directories containing PokerTH.exe and your settings from the current directory.  All must be a subdirectory (or multiple subdirectories) of the directory containing PokerTHPortable.exe.  The default entries for these are described in the installation section above.
-
-The PokerTHExecutable entry allows you to set the PokerTH Portable Launcher to use an alternate EXE call to launch firefox.  This is helpful if you are using a machine that is set to deny PokerTH.exe from running.  You'll need to rename the PokerTH.exe file and then enter the name you gave it on the PokerTHexecutable= line of the INI.
-
-The AdditionalParameters entry allows you to pass additional commandline parameter entries to PokerTH.exe.  Whatever you enter here will be appended to the call to firefox.exe.
-
-The DisableSplashScreen entry allows you to run the PokerTH Portable Launcher without the splash screen showing up.  The default is false.
+There may be other values also permitted in the user configuration file by the
+portable application; refer to help.html for any details of them.
